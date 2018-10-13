@@ -19,6 +19,9 @@ isValid("N7 7AJ");
 isValid("N77AJ");
 //=> true
 
+isValid("GIR 0AA");
+//=> true
+
 isValid("N7 A7J");
 //=> false
 
