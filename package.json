@@ -4,10 +4,13 @@
   "description": "Validate UK postcodes.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,scss,css,md}\"",
     "lint": "eslint . --ext .ts",
+    "prepublish": "pnpm build",
+    "release": "pnpm build && changeset publish",
     "test": "ts-node src/test",
     "typecheck": "tsc"
   },
@@ -33,6 +36,7 @@
   },
   "homepage": "https://github.com/sirLisko/uk-postcode-validator#readme",
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@types/tape": "^5.6.1",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
@@ -42,6 +46,7 @@
     "prettier": "^3.0.3",
     "tape": "^5.7.1",
     "ts-node": "^10.9.1",
+    "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
   "engines": {
